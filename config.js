@@ -15,7 +15,7 @@ module.exports = {
 	twentyFourSeven: false, //- When set to true, the bot will never disconnect from the voice channel
 	autoQueue: false, //- When set to true, related songs will automatically be added to the queue
 	autoPause: true, //- When set to true, music will automatically be paused if everyone leaves the voice channel
-	debug: false, //- Debug mode
+	debug: process.env.LAVALINK_DEBUG === "true", //- Debug mode
 	cookieSecret: "CodingWithSudhan is epic", //- Cookie Secret
 	website: process.env.WEBSITE ?? "http://localhost:4200", //- without the / at the end
 	// You need a lavalink server for this bot to work!!!!
@@ -24,11 +24,11 @@ module.exports = {
 		{
 			identifier: "Main Node", //- Used for indentifier in stats commands.
 			host: process.env.LAVALINK_HOST, //- The host name or IP of the lavalink server.
-			port: process.env.LAVALINK_PORT ?? 80, // The port that lavalink is listening to. This must be a number!
+			port: parseInt(process.env.LAVALINK_PORT) || 80, // The port that lavalink is listening to. This must be a number!
 			password: process.env.LAVALINK_PASSWORD ?? "", //- The password of the lavalink server.
 			retryAmount: 200, //- The amount of times to retry connecting to the node if connection got dropped.
 			retryDelay: 40, //- Delay between reconnect attempts if connection is lost.
-			secure: process.env.LAVALINK_SECURE ?? false, //- Can be either true or false. Only use true if ssl is enabled!
+			secure: process.env.LAVALINK_SECURE === "true", //- Can be either true or false. Only use true if ssl is enabled!
 		},
 	],
 	embedColor: "#2f3136", //- Color of the embeds, hex supported
