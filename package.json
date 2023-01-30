@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
+    "deploy-start": "npm run deploy && npm run start",
     "rm-logs": "rm logs.log",
     "lint": "prettier --check .",
     "deploy": "node deploy/global",
