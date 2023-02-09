@@ -19,7 +19,26 @@
 
 ## 📝 | Tutorial
 
-Soon
+### 🐳 Docker
+**Docker Compose**
+```yaml
+version: '3.4'
+
+services:
+  musa:
+    image: arciducazagaria/musa:latest
+    restart: always
+    environment:
+      - TOKEN=
+      - CLIENT_ID=
+      - CLIENT_SECRET=
+      - WEBSITE=
+      - LAVALINK_HOST=
+      - LAVALINK_PASSWORD=
+      - LAVALINK_SECURE=
+      - BOT_ACTIVITY_TEXT=
+      - BOT_ACTIVITY_TYPE=
+```
 
 ## 📝 | [Support Server](https://discord.gg/sbySMS7m3v)
 
