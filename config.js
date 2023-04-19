@@ -7,6 +7,7 @@ module.exports = {
 	clientSecret: process.env.CLIENT_SECRET, //- Client Secret of the bot
 	port: 4200, //- Port of the API and Dashboard
 	scopes: ["identify", "guilds", "applications.commands"], //- Discord OAuth2 Scopes
+	inviteScopes: ["bot", "applications.commands"], // Invite link scopes
 	serverDeafen: true, //- If you want bot to stay deafened
 	defaultVolume: 100, //- Sets the default volume of the bot, You can change this number anywhere from 1 to 100
 	supportServer: "https://discord.gg/sbySMS7m3v", //- Support Server Link
@@ -14,9 +15,10 @@ module.exports = {
 	permissions: 277083450689, //- Bot Inviting Permissions
 	disconnectTime: 30000, //- How long should the bot wait before disconnecting from the voice channel (in miliseconds). Set to 1 for instant disconnect.
 	twentyFourSeven: false, //- When set to true, the bot will never disconnect from the voice channel
-	autoQueue: false, //- When set to true, related songs will automatically be added to the queue
-	autoPause: true, //- When set to true, music will automatically be paused if everyone leaves the voice channel
-	debug: process.env.LAVALINK_DEBUG === "true", //- Debug mode
+	autoQueue: (process.env.AUTOQUEUE ?? "false") === "true", //- When set to true, related songs will automatically be added to the queue
+	autoPause: (process.env.AUTOPAUSE ?? "true") === "true", //- When set to true, music will automatically be paused if everyone leaves the voice channel
+	autoLeave: (process.env.AUTOLEAVE ?? "false") === "true", //- When set to true, the bot will automatically leave when no one is in the voice channel (can be combined with 24/7 to always be in voice channel until everyone leaves; if 24/7 is on disconnectTime will add a disconnect delay after everyone leaves.)
+	debug: (process.env.DEBUG ?? "false") === "true", //- Debug mode
 	cookieSecret: "CodingWithSudhan is epic", //- Cookie Secret
 	website: process.env.WEBSITE ?? "http://localhost:4200", //- without the / at the end
 	// You need a lavalink server for this bot to work!!!!
